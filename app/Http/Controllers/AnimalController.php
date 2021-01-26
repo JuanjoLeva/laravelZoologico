@@ -36,16 +36,11 @@ class AnimalController extends Controller
 
     public function store(Request $request){
 
-        $nuevoAnimal=new Animal();
-        $nuevoAnimal->especie=$request->especie;
-        $nuevoAnimal->peso=$request->peso;
-        $nuevoAnimal->altura=$request->altura;
-        $nuevoAnimal->fechaNac=$request->fechaNac;
-        $nuevoAnimal->alimentacion=$request->alimentacion;
-        $nuevoAnimal->descripcion=$request->descripcion;
-        $nuevoAnimal->imagen= $request->imagen->store('','animales');
+        $datos=$request->all();
+        $datos['imagen']=$request->imagen->store('','animales');
 
-        $nuevoAnimal->save();
+        $nuevoAnimal=Animal::create($datos);
+
         return view("animales.show",['animal'=>$nuevoAnimal]);
     }
 
