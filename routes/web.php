@@ -15,3 +15,7 @@ Route::get('animales/{animal}/editar', [\App\Http\Controllers\AnimalController::
 Route::post('animales',[\App\Http\Controllers\AnimalController::class,'store'])->name("animales.store");
 
 Route::put('animales/{animal}',[\App\Http\Controllers\AnimalController::class,'update'])->name("animales.update");
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
