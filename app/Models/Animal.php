@@ -19,4 +19,9 @@ class Animal extends Model
         $fechaFormateada=Carbon::parse($this->fechaNac);
         return $fechaFormateada->diffInYears(Carbon::now());
     }
+
+    public function revisiones()
+    {
+        return $this->hasMany(Revision::class);
+    }
 }
