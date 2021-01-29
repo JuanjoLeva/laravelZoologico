@@ -28,7 +28,7 @@ class AnimalController extends Controller
         return view("animales.show",['animal'=>$animales]);
     }
 
-    public function edit($animal)
+    public function edit(Animal $animal)
     {
         $animales=Animal::findOrFail($animal);
         return view("animales.edit",['animal'=>$animales]);
@@ -43,7 +43,7 @@ class AnimalController extends Controller
 
         return view("animales.show",['animal'=>$nuevoAnimal]);
     }
-    
+
     public function update(Request $request, $animal){
         $animales=Animal::findOrFail($animal);
 

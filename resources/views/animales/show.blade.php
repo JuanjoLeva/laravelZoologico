@@ -22,10 +22,13 @@
                     <li><strong>Comida:</strong></li>
                     {{$animal->alimentacion}}<br><br>
                     <li><strong>Revisiones:</strong></li>
-                    {{$animal->revisiones}}<br><br>
+                    @foreach($animal->revisiones as $revision)
+                        <ul>Fecha: {{$revision->fecha}} -- Revision numero: {{$revision->id}}</ul>
+                    @endforeach<br>
                     <!--<input type="submit" class="btn btn-warning" value="Editar" name="enviar">-->
                     <a href="{{ route('animales.edit',$animal->id) }}"><button class="btn btn-warning">Editar</button></a>
                     <a href="{{ route('animales.index') }}"><button class="btn btn-success">Mostrar todos los animales</button></a>
+                    <a href="{{ route('animales.index') }}"><button class="btn btn-danger">Añadir revision</button></a>
                 </div>
         </div>
     </div>
