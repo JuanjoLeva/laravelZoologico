@@ -15,7 +15,8 @@ class CreateRevisionesTable extends Migration
     {
         Schema::create('revisiones', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger("animales_id")->references("id")->on("animales");;
+            $table->unsignedBigInteger("animal_id");
+            $table->foreign("animal_id")->references("id")->on("animales");
             $table->date("fecha");
             $table->longText("descripcion");
             $table->timestamps();

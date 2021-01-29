@@ -11,5 +11,8 @@ class Revision extends Model
     protected $table="revisiones";
     protected $guarded=[];
 
-
+    public function animal()
+    {
+        return $this->belongsTo(Animal::class);
+    }
 }

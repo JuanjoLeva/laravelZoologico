@@ -21,6 +21,8 @@
                     {{$animal->getEdad()}}<br><br>
                     <li><strong>Comida:</strong></li>
                     {{$animal->alimentacion}}<br><br>
+                    <li><strong>Revisiones:</strong></li>
+                    {{$animal->revisiones}}<br><br>
                     <!--<input type="submit" class="btn btn-warning" value="Editar" name="enviar">-->
                     <a href="{{ route('animales.edit',$animal->id) }}"><button class="btn btn-warning">Editar</button></a>
                     <a href="{{ route('animales.index') }}"><button class="btn btn-success">Mostrar todos los animales</button></a>

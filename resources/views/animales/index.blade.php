@@ -18,6 +18,7 @@
                                     <h5 class="card-text">-Altura: {{$animal->altura}} cm</h5>
                                     <h5 class="card-text">-Fecha: {{$animal->fechaNac}}</h5>
                                     <h5 class="card-text">-Alimentacion: {{$animal->alimentacion}}</h5>
+                                    <h5 class="card-text">-Revisiones: {{count($animal->revisiones)}}</h5>
                                     <br>
                                     <h3 class="text-center">
                                         <a href="{{ route('animales.show' , $animal ) }}">
