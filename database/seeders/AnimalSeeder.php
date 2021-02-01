@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Animal;
+use Illuminate\Support\Str;
 
 class AnimalSeeder extends Seeder
 {
@@ -115,6 +116,7 @@ Son diurnos y viven preferentemente en el suelo. Forman grupos numerosos que se 
         {
             $a = new Animal();
             $a->especie = $animal['especie'];
+            $a->slug= Str::slug($animal['especie']);
             $a->peso = $animal['peso'];
             $a->altura = $animal['altura'];
             $a->fechaNac = $animal['fechaNacimiento'];

@@ -22,16 +22,15 @@ class AnimalController extends Controller
         return view("animales.create");
     }
 
-    public function show($animal)
+    public function show(Animal $animal)
     {
-        $animales=Animal::findOrFail($animal);
-        return view("animales.show",['animal'=>$animales]);
+        return view("animales.show",compact("animal"));
     }
 
     public function edit(Animal $animal)
     {
-        $animales=Animal::findOrFail($animal);
-        return view("animales.edit",['animal'=>$animales]);
+
+        return view("animales.edit",compact("animal"));
     }
 
     public function store(Request $request){
@@ -53,7 +52,13 @@ class AnimalController extends Controller
         $animales->fechaNac=$request->fechaNac;
         $animales->alimentacion=$request->alimentacion;
         $animales->descripcion=$request->descripcion;
-        $animales->imagen= $request->imagen->store('','animales');
+
+        if(!empty($request->imagen) && $request->imagen->isValid()){
+            Storage::disk('animales')->delete($animal->imagen);
+
+            $animales->imagen= $request->imagen->store('','animales');
+        }
+
         $animales->save();
         return view("animales.show",['animal'=>$animales]);
     }

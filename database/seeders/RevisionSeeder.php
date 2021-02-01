@@ -16,12 +16,12 @@ class RevisionSeeder extends Seeder
     public function run()
     {
         $r=new Revision();
-        $r->animal_id=Animal::all()->first()->id;
+        $r->animal_id=Animal::all()->random()->id;
         $r->fecha="2021/12/3";
         $r->descripcion="Hola que tal";
 
         $r2=new Revision();
-        $r2->animal_id=Animal::all()->first()->id;
+        $r2->animal_id=Animal::all()->random()->id;
         $r2->fecha="2021/12/4";
         $r2->descripcion="tal";
 

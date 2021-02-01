@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("titulo")
-    index
+    show
 @endsection
 
 @section("contenido")
@@ -17,18 +17,21 @@
                     </h3>
                     <li><strong>Descripcion:</strong></li>
                     {{$animal->descripcion}}<br><br>
+
                     <li><strong>Años:</strong></li>
                     {{$animal->getEdad()}}<br><br>
+
                     <li><strong>Comida:</strong></li>
                     {{$animal->alimentacion}}<br><br>
+
                     <li><strong>Revisiones:</strong></li>
                     @foreach($animal->revisiones as $revision)
                         <ul>Fecha: {{$revision->fecha}} -- Revision numero: {{$revision->id}}</ul>
                     @endforeach<br>
-                    <!--<input type="submit" class="btn btn-warning" value="Editar" name="enviar">-->
-                    <a href="{{ route('animales.edit',$animal->id) }}"><button class="btn btn-warning">Editar</button></a>
+
+                    <a href="{{ route('animales.edit', $animal) }}"><button class="btn btn-warning">Editar</button></a>
                     <a href="{{ route('animales.index') }}"><button class="btn btn-success">Mostrar todos los animales</button></a>
-                    <a href="{{ route('animales.index') }}"><button class="btn btn-danger">Añadir revision</button></a>
+                    <a href="{{ route('revisiones.create', $animal) }}"><button class="btn btn-danger">Añadir revision</button></a>
                 </div>
         </div>
     </div>

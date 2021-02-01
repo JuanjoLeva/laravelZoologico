@@ -21,7 +21,7 @@
                                     <h5 class="card-text">-Revisiones: {{count($animal->revisiones)}}</h5>
                                     <br>
                                     <h3 class="text-center">
-                                        <a href="{{ route('animales.show' , $animal ) }}">
+                                        <a href="{{ route('animales.show' , $animal) }}">
                                             Información <i class="icon ion-md-search" size="large"></i>
                                         </a>
                                     </h3>
