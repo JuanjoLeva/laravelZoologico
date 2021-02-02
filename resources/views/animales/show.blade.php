@@ -26,7 +26,7 @@
 
                     <li><strong>Revisiones:</strong></li>
                     @foreach($animal->revisiones as $revision)
-                        <ul>Fecha: {{$revision->fecha}} -- Revision numero: {{$revision->id}}</ul>
+                        <ul>Fecha: {{$revision->fecha}} -- Revision numero: {{$revision->id}} -- Descripcion: {{$revision->descripcion}}</ul>
                     @endforeach<br>
 
                     <a href="{{ route('animales.edit', $animal) }}"><button class="btn btn-warning">Editar</button></a>

@@ -43,24 +43,24 @@ class AnimalController extends Controller
         return view("animales.show",['animal'=>$nuevoAnimal]);
     }
 
-    public function update(Request $request, $animal){
-        $animales=Animal::findOrFail($animal);
+    public function update(Request $request,Animal $animal){
 
-        $animales->especie=$request->especie;
-        $animales->peso=$request->peso;
-        $animales->altura=$request->altura;
-        $animales->fechaNac=$request->fechaNac;
-        $animales->alimentacion=$request->alimentacion;
-        $animales->descripcion=$request->descripcion;
+
+        $animal->especie=$request->especie;
+        $animal->peso=$request->peso;
+        $animal->altura=$request->altura;
+        $animal->fechaNac=$request->fechaNac;
+        $animal->alimentacion=$request->alimentacion;
+        $animal->descripcion=$request->descripcion;
 
         if(!empty($request->imagen) && $request->imagen->isValid()){
             Storage::disk('animales')->delete($animal->imagen);
 
-            $animales->imagen= $request->imagen->store('','animales');
+            $animal->imagen= $request->imagen->store('','animales');
         }
 
-        $animales->save();
-        return view("animales.show",['animal'=>$animales]);
+        $animal->save();
+        return view("animales.show",['animal'=>$animal]);
     }
 
 

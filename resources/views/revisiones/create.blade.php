@@ -1,7 +1,7 @@
 @extends("layouts.master")
 
 @section("titulo")
-    crear revision
+    Crear revision
 @endsection
 
 @section("contenido")
@@ -12,15 +12,11 @@
                     <h3>Añadir revision</h3>
                 </div>
                 <div class="card-body" style="padding:30px">
-                    <form method="post" action="{{route('revision.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('revisiones.store',$animal)}}" enctype="multipart/form-data">
                         @csrf
+
                         <div class="form-group">
-                            <label for="especie"><strong>Especie</strong></label>
-                            <input type="text" name="especie" id="especie" class="form-control" readonly>
-                            <br><br>
-                        </div>
-                        <div class="form-group">
-                            <strong>Introduce la fecha de la revision</strong> <input type="date" name="fechaNac">
+                            <strong>Introduce la fecha de la revision</strong> <input type="date" name="fecha">
                             <br><br>
                         </div>
                         <div class="form-group">

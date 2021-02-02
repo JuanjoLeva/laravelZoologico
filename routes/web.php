@@ -16,7 +16,9 @@ Route::post('animales',[\App\Http\Controllers\AnimalController::class,'store'])-
 
 Route::put('animales/{animal}',[\App\Http\Controllers\AnimalController::class,'update'])->name("animales.update");
 
-Route::get('revisiones/{animal}/crear',[\App\Http\Controllers\RevisionController::class,'store'])->name("revisiones.create");
+Route::get('revisiones/{animal}/crear',[\App\Http\Controllers\RevisionController::class,'create'])->name("revisiones.create");
+
+Route::post('revisiones/{animal}',[\App\Http\Controllers\RevisionController::class,'store'])->name("revisiones.store");
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

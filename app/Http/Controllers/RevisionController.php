@@ -8,12 +8,19 @@ use Illuminate\Http\Request;
 
 class RevisionController extends Controller
 {
-    public function store(Request $request){
+    public function create(Animal $animal)
+    {
+        return view("revisiones.create",compact("animal"));
+    }
+
+    public function store(Request $request, Animal $animal){
 
         $datos=$request->all();
 
+        $datos['animal_id']=$animal->id;
+
         $nuevaRevision=Revision::create($datos);
 
-        return view("animales.show",['revision'=>$nuevaRevision]);
+        return view("animales.show",compact("animal"));
     }
 }
