@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Cuidador;
 use Illuminate\Database\Seeder;
 use App\Models\Animal;
 use Illuminate\Support\Str;
@@ -124,6 +125,11 @@ Son diurnos y viven preferentemente en el suelo. Forman grupos numerosos que se 
             $a->alimentacion = $animal['alimentacion'];
             $a->descripcion = $animal['descripcion'];
             $a->save();
+
+            $a->cuidadores()->attach([
+                Cuidador::all()->skip(0)->take(10)->random()->id,
+                Cuidador::all()->skip(10)->take(10)->random()->id
+            ]);
         }
         $this->command->info('Tabla animales inicializada con datos');
     }

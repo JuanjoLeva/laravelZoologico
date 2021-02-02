@@ -29,4 +29,9 @@ class Animal extends Model
     {
         return 'slug';
     }
+
+    public function cuidadores()
+    {
+        return $this->belongsToMany(Cuidador::class);
+    }
 }
