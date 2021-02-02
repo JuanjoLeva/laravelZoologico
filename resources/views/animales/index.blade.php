@@ -19,6 +19,10 @@
                                     <h5 class="card-text">-Fecha: {{$animal->fechaNac}}</h5>
                                     <h5 class="card-text">-Alimentacion: {{$animal->alimentacion}}</h5>
                                     <h5 class="card-text">-Revisiones: {{count($animal->revisiones)}}</h5>
+                                    <h5 class="card-text">-Cuidadores:</h5>
+                                    @foreach($animal->cuidadores as $cuidador)
+                                        Nombre: {{$cuidador->nombre}} <br>
+                                    @endforeach<br>
                                     <br>
                                     <h3 class="text-center">
                                         <a href="{{ route('animales.show' , $animal) }}">
